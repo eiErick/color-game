@@ -1,4 +1,4 @@
-# Calculator JS
+# Color Guessing Web Game JS
 
 This is a color guessing web project made in pure JavaScript.
 
