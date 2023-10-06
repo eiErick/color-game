@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/Alecive-Flatwoken-Apps-Color.svg" type="image/x-icon">
+    <title>Guess the Color Game</title>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <h1>Color Guessing Games</h1>
+        <h2 id="display">RGB(000, 000, 000)</h2>
+    </header>
+
+    <nav>
+        <button class="reload" id="reload">RELOAD</button>
+        <p>Points: <bolder>
+            <snap class="scoreboard" id="scoreboard">100</snap>
+        </bolder></p>
+        <span>
+            <button class="btn-easy" id="btn-easy">EASY</button>
+            <button class="btn-hard selected" id="btn-hard">HARD</button>
+        </span>
+    </nav>
+
+    <div class="line-one-game lines" id="lines">
+
+        <div class="line-one-game">
+            <div class="color c1"></div>
+            <div class="color c2"></div>
+        </div>
+
+        <div class="line-two-game">
+            <div class="color c3"></div>
+            <div class="color c4"></div>
+        </div>
+
+        <div class="line-three-game">
+            <div class="color c5"></div>
+            <div class="color c6"></div>
+        </div>
+    </div>
+    <button class="btn-play-again" id="btn-play-again">PLAY AGAIN</button>
+    <script src="main.js"></script>
+</body>
+</html>
