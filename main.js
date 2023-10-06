@@ -9,6 +9,7 @@ const btnHard = document.querySelector("#btn-hard");
 const btnPlayAgain = document.querySelector("#btn-play-again");
 
 let numChooseColor = 6;
+let winner = false;
 
 showColors();
 
@@ -17,26 +18,29 @@ btnPlayAgain.addEventListener("click", () => {
     btnPlayAgain.style.display = "none";
 })
 
-btnReload.addEventListener("click", reload)
+btnReload.addEventListener("click", reload);
 
 btnEasy.addEventListener("click", () => {
     btnEasy.classList.add("selected");
     btnHard.classList.remove("selected");
     difficulty("easy");
-})
+});
 
 btnHard.addEventListener("click", () => {
     btnHard.classList.add("selected");
     btnEasy.classList.remove("selected");
     difficulty("hard");
-})
+});
 
 btnColor.forEach(btnColor => {
     btnColor.addEventListener("click", function() {
-        let btn = this;
-        btn.style.display = "none";
-        verifier(btn);
-        printPoints(-10);
+        while (winner != true) {
+            let btn = this;
+            btn.style.display = "none";
+            printPoints(-10);
+            winner = verifier(btn);
+            break;
+        }
     })
 });
 
@@ -63,16 +67,19 @@ function verifier(btnColor) {
     if (btnColor.style.backgroundColor == display.innerHTML.toLowerCase()) {
         header.style.backgroundColor = btnColor.style.backgroundColor;
         btnPlayAgain.style.display = "block";
+        display.innerText = "You is Winner!";
         printPoints(30);
 
         for (var i = 0; i < btnColor.length; i++) {
             btnColor[i].style.backgroundColor = btn.style.backgroundColor;
         }
+        return true;
     }
 }
 
 function reload() {
     header.style.backgroundColor = "";
+    winner = false;
     for (var i = 0; i < btnColor.length; i++) {
         btnColor[i].style.display = "flex";
     }
